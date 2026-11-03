@@ -1,7 +1,5 @@
-import Image from "next/image";
-
 export default function Home() {
   return (
-    <div>project development prototype - Olya</div>
+    <h3>project development prototype - Olya</h3>
   );
 }
