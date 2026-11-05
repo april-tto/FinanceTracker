@@ -1,4 +1,228 @@
+
+/* GENERAL PAGE STYLING */
+
 body {
+    margin: 0;
     background-color: #8da564;
     font-family: Arial, sans-serif;
+    color: #ffffff;
 }
+
+/* MAIN AUTHENTICATION PAGE */
+
+.auth-page {
+    min-height: 100vh;
+    padding: 30px 5%;
+    box-sizing: border-box;
+}
+
+.auth-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.auth-header h1 {
+    font-size: 32px;
+    margin-bottom: 8px;
+    color: #151515;
+}
+
+.auth-header p {
+    color: #252525;
+}
+
+/* TWO-PANEL LAYOUT */
+
+.auth-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+    max-width: 1100px;
+    margin: auto;
+}
+
+/* INDIVIDUAL PANELS */
+
+.auth-panel {
+    padding: 35px;
+    border-radius: 12px;
+    box-sizing: border-box;
+}
+
+.register-panel {
+    background-color: #f5f5f2;
+    color: #222222;
+}
+
+.login-panel {
+    background-color: #171717;
+    color: #ffffff;
+}
+
+.auth-panel h2 {
+    margin-top: 0;
+    font-size: 26px;
+}
+
+.panel-description {
+    margin-bottom: 25px;
+    font-size: 14px;
+}
+
+/* FORM FIELDS */
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #cccccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-size: 14px;
+    outline: none;
+}
+
+.form-group input:focus {
+    border: 2px solid #8da564;
+}
+
+/* BUTTONS */
+
+.auth-button {
+    width: 100%;
+    padding: 13px;
+    margin-top: 8px;
+    border: none;
+    border-radius: 6px;
+    background-color: #8da564;
+    color: #111111;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.auth-button:hover {
+    background-color: #71864d;
+}
+
+/* FORM FEEDBACK */
+
+.form-message {
+    padding: 10px;
+    margin-top: 15px;
+    background-color: #e5eddb;
+    color: #263522;
+    border-radius: 6px;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.login-footer {
+    margin-top: 35px;
+    text-align: center;
+    color: #cccccc;
+    font-size: 13px;
+}
+
+/* FOOTER */
+
+.auth-footer {
+    text-align: center;
+    margin-top: 30px;
+    color: #222222;
+    font-size: 13px;
+}
+
+
+
+@media (max-width: 768px) {
+    .auth-container {
+        grid-template-columns: 1fr;
+    }
+
+    .auth-panel {
+        padding: 25px;
+    }
+
+    .auth-header h1 {
+        font-size: 26px;
+    }
+}
+
+
+/* LOGOUT PAGE */
+
+.logout-page {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.logout-card {
+    background-color: #171717;
+    color: #ffffff;
+    padding: 50px 35px;
+    border-radius: 12px;
+    text-align: center;
+    max-width: 480px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.logout-icon {
+    width: 65px;
+    height: 65px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    background-color: #8da564;
+    color: #171717;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.logout-card h1 {
+    font-size: 28px;
+}
+
+.logout-card p {
+    line-height: 1.6;
+}
+
+.logout-subtitle {
+    color: #cccccc;
+    font-size: 14px;
+    margin-bottom: 30px;
+}
+
+.return-button {
+    display: inline-block;
+    background-color: #8da564;
+    color: #111111;
+    padding: 13px 25px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.return-button:hover {
+    background-color: #71864d;
+}
+
