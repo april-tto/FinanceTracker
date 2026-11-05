@@ -13,7 +13,7 @@ export default function Dashboard() {
         
         {/* This is the link to YOUR feature */}
         <Link 
-          href="/analyze-spending" 
+          href="/analyzespending" 
           style={{ 
             padding: '10px 20px', 
             backgroundColor: '#2563eb', 
