@@ -12,6 +12,7 @@
     "next": "16.4.4",
     "react": "19.3.0",
     "react-dom": "19.3.0",
+    "react-plaid-link": "^5.0.0",
     "react-router-dom": "^7.18.5"
   },
   "devDependencies": {
@@ -23,5 +24,10 @@
     "eslint-config-next": "16.4.4",
     "tailwindcss": "^4",
     "typescript": "^5"
-  }
+  },
+  "description": "This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).",
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }

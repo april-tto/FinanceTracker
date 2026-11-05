@@ -1,9 +1,10 @@
 import React from 'react';
+import PlaidConnect from "../components/PlaidConnect";
 
 export default function Dashboard() {
   return (
     <div>
-      <h1>Welcome to the Dashboard</h1>
+      <PlaidConnect />
     </div>
   );
 }
