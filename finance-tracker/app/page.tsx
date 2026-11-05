@@ -1,7 +1,9 @@
+import Login from './login/page';
+
 export default function Home() {
   return (
     <div>
-      <h1>Welcome to the Finance Tracker</h1>
+      <Login />
     </div>
   );
 }

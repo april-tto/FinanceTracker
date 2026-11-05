@@ -1,11 +1,12 @@
 
 'use client';
-
 import React, { useState } from 'react';
+import { useRouter } from 'next/navigation';
 
 export default function Login() {
   const [registerMessage, setRegisterMessage] = useState('');
   const [loginMessage, setLoginMessage] = useState('');
+  const router = useRouter();
 
   const handleRegister = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -32,6 +33,11 @@ export default function Login() {
     setLoginMessage(
       'Login Succesful.'
     );
+
+    setTimeout(() => {
+      router.push('/dashboard');
+    }, 1000);
+
   };
 
   return (
