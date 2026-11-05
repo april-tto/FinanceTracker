@@ -1,7 +1,7 @@
 // Backend for the AI Chatbot.
 // Gets the user's question, asks Gemini AI, and sends back the answer.
 
-import { sampleTransactions } from "../../data/sampleTransactions";
+import { sampleTransactions } from "../data/sampleTransactions";
 
 export async function POST(request: Request) {
   const body = await request.json();
