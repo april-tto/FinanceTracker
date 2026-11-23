@@ -1,11 +1,12 @@
 
 'use client';
-
 import React, { useState } from 'react';
+import { useRouter } from 'next/navigation';
 
 export default function Login() {
   const [registerMessage, setRegisterMessage] = useState('');
   const [loginMessage, setLoginMessage] = useState('');
+  const router = useRouter();
 
   // Password visibility
   const [showRegisterPassword, setShowRegisterPassword] = useState(false);
@@ -72,10 +73,14 @@ export default function Login() {
   const handleLogin = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    // Create a temporary login session for the prototype
-    sessionStorage.setItem('financeTrackerSession', 'active');
+    setLoginMessage(
+      'Login Succesful.'
+    );
 
-    setLoginMessage('Login successful!');
+    setTimeout(() => {
+      router.push('/dashboard');
+    }, 1000);
+
   };
 
   return (

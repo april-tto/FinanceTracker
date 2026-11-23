@@ -1,5 +1,16 @@
 # FinanceTracker
-Prototype for Project Development 1 class
+(Project Development 1)
 
-I edited the main branch to setup initial structure for all the files/folder. Now I will create my ow branch where I will be working on 
-the dashboard.
+# Finance Tracker Application
+A comprehensive application for tracking your finances.
+
+- Link your bank account, and you will be able to view *your spendings on a dashboard*
+- Boost your knowledge by skimming through our *financial literacy section*
+- Got a question about your finances? Our *AI Chatbot* can give you a hand
+- Plan *a saving goal* - how much money you will need to take out of your paycheck to achieve it
+- Put all of your bills and recurring charges into a separate *financial calendar* to never miss a deadline!
+
+Supports *user authentication*
+
+*This github repository is a prototype
+
