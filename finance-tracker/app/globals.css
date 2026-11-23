@@ -226,3 +226,235 @@ body {
     background-color: #71864d;
 }
 
+
+/* =====================================
+   PASSWORD SHOW / HIDE
+===================================== */
+
+.password-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.password-wrapper input {
+    width: 100%;
+    padding-right: 65px;
+}
+
+.password-toggle {
+    position: absolute;
+    right: 10px;
+    border: none;
+    background: transparent;
+    color: #71864d;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.login-panel .password-toggle {
+    color: #a9c184;
+}
+
+.password-toggle:hover {
+    text-decoration: underline;
+}
+
+/* =====================================
+   FORGOT PASSWORD LINK
+===================================== */
+
+.forgot-password {
+    text-align: right;
+    margin-top: -5px;
+    margin-bottom: 15px;
+}
+
+.forgot-password a {
+    color: #a9c184;
+    font-size: 13px;
+    text-decoration: none;
+}
+
+.forgot-password a:hover {
+    text-decoration: underline;
+}
+
+/* =====================================
+   PASSWORD STRENGTH INDICATOR
+===================================== */
+
+.password-strength {
+    margin-top: 12px;
+    font-size: 12px;
+}
+
+.strength-heading {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.strength-weak {
+    color: #d9534f;
+}
+
+.strength-medium {
+    color: #d69a35;
+}
+
+.strength-strong {
+    color: #4c8c43;
+}
+
+.strength-bars {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 10px;
+}
+
+.strength-bar {
+    height: 6px;
+    flex: 1;
+    background-color: #d6d6d6;
+    border-radius: 5px;
+}
+
+.strength-bar-weak {
+    background-color: #d9534f;
+}
+
+.strength-bar-medium {
+    background-color: #d69a35;
+}
+
+.strength-bar-strong {
+    background-color: #4c8c43;
+}
+
+.password-requirements {
+    list-style: none;
+    padding: 0;
+    margin: 8px 0;
+    line-height: 1.8;
+    color: #777777;
+}
+
+.password-requirements li.valid {
+    color: #4c8c43;
+    font-weight: bold;
+}
+
+/* =====================================
+   FORGOT PASSWORD PAGE
+===================================== */
+
+.forgot-page {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.forgot-card {
+    background-color: #171717;
+    color: #ffffff;
+    padding: 45px 35px;
+    border-radius: 12px;
+    max-width: 480px;
+    width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.forgot-icon {
+    width: 65px;
+    height: 65px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    background-color: #8da564;
+    color: #171717;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.forgot-card h1 {
+    font-size: 26px;
+}
+
+.forgot-card > p {
+    color: #cccccc;
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.forgot-card .form-group {
+    text-align: left;
+}
+
+.forgot-card .form-group label {
+    color: #ffffff;
+}
+
+.forgot-card .form-group input {
+    background-color: #ffffff;
+    color: #222222;
+}
+
+.recovery-message {
+    background-color: #e5eddb;
+    color: #263522;
+    padding: 15px;
+    border-radius: 6px;
+    margin: 20px 0;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.recovery-message h3 {
+    margin-top: 0;
+}
+
+.back-login {
+    display: inline-block;
+    margin-top: 25px;
+    color: #a9c184;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.back-login:hover {
+    text-decoration: underline;
+}
+
+/* =====================================
+   LOGOUT CONFIRMATION
+===================================== */
+
+.cancel-logout-button {
+    display: block;
+    width: 100%;
+    margin-top: 12px;
+    padding: 13px;
+    border: 1px solid #8da564;
+    border-radius: 6px;
+    background-color: transparent;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.cancel-logout-button:hover {
+    background-color: #303b27;
+}
+
+
