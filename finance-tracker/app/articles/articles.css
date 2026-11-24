@@ -1,0 +1,171 @@
+.articles-container {
+    background-color: #8da564;
+    min-height: 100%;
+    padding: 35px;
+    border-radius: 12px;
+    font-family: Arial, sans-serif;
+    color: #26351f;
+    box-sizing: border-box;
+}
+
+
+
+.page-title {
+    margin-bottom: 35px;
+}
+
+.title-name {
+    font-size: 26px;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #26351f;
+}
+
+.title-desc {
+    color: #34452a;
+    margin-bottom: 20px;
+    line-height: 1.6;
+    max-width: 850px;
+}
+
+
+.articles {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    width: 90%;
+    margin: 0 auto;
+}
+
+.article-instance {
+    width: 100%;
+    box-sizing: border-box;
+
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 20px;
+
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.article-instance:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+.article-instance h3 {
+    font-size: 17px;
+    margin: 0 0 6px;
+    color: #26351f;
+}
+
+.article-instance h4 {
+    font-size: 12px;
+    font-weight: normal;
+    color: #888;
+    margin: 0 0 22px;
+}
+
+.article-preview {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #555;
+
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    overflow: hidden;
+
+    margin: 0 0 15px;
+}
+
+
+.read-more {
+    font-size: 12px;
+    font-weight: 600;
+    color: #344d2c;
+    margin-top: auto;
+}
+
+
+
+
+.article-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+    z-index: 1000;
+}
+
+
+
+.article-popup {
+    position: relative;
+    background-color: #ffffff;
+    width: 100%;
+    max-width: 750px;
+    max-height: 85vh;
+
+    padding: 35px;
+    border-radius: 12px;
+    box-sizing: border-box;
+
+    overflow-y: auto;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
+}
+
+.article-popup h2 {
+    font-size: 23px;
+    margin: 0 40px 10px 0;
+    color: #26351f;
+}
+
+.article-popup h4 {
+    font-size: 13px;
+    font-weight: normal;
+    color: #888;
+    margin-bottom: 25px;
+}
+
+
+
+.popup-content {
+    font-size: 15px;
+    line-height: 1.8;
+    color: #444;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+
+
+
+.close-popup {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+
+    background: none;
+    border: none;
+
+    font-size: 30px;
+    color: #777;
+    cursor: pointer;
+}
+
+.close-popup:hover {
+    color: #344d2c;
+}
