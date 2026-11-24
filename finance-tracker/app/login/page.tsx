@@ -8,6 +8,44 @@ export default function Login() {
   const [loginMessage, setLoginMessage] = useState('');
   const router = useRouter();
 
+  // Password visibility
+  const [showRegisterPassword, setShowRegisterPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [showLoginPassword, setShowLoginPassword] = useState(false);
+
+  // Registration password strength
+  const [registerPassword, setRegisterPassword] = useState('');
+
+  const passwordChecks = [
+    {
+      label: 'At least 8 characters',
+      valid: registerPassword.length >= 8,
+    },
+    {
+      label: 'One uppercase letter',
+      valid: /[A-Z]/.test(registerPassword),
+    },
+    {
+      label: 'One lowercase letter',
+      valid: /[a-z]/.test(registerPassword),
+    },
+    {
+      label: 'One number',
+      valid: /[0-9]/.test(registerPassword),
+    },
+    {
+      label: 'One special character',
+      valid: /[^A-Za-z0-9]/.test(registerPassword),
+    },
+  ];
+
+  const strength = passwordChecks.filter(check => check.valid).length;
+
+  const strengthLabel =
+    registerPassword.length === 0 ? '' :
+    strength <= 2 ? 'Weak' :
+    strength <= 4 ? 'Medium' : 'Strong';
+
   const handleRegister = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
@@ -22,9 +60,14 @@ export default function Login() {
       return;
     }
 
-    setRegisterMessage(
-      'Registration sucessful.'
-    );
+    if (strength < 5) {
+      setRegisterMessage('Please create a stronger password.');
+      return;
+    }
+
+    setRegisterMessage('Registration successful!');
+    form.reset();
+    setRegisterPassword('');
   };
 
   const handleLogin = (e: React.FormEvent<HTMLFormElement>) => {
@@ -98,30 +141,99 @@ export default function Login() {
               />
             </div>
 
+            {/* REGISTRATION PASSWORD */}
+
             <div className="form-group">
               <label htmlFor="registerPassword">Create Password</label>
-              <input
-                type="password"
-                id="registerPassword"
-                name="password"
-                placeholder="Create a password"
-                autoComplete="new-password"
-                minLength={8}
-                required
-              />
+
+              <div className="password-wrapper">
+                <input
+                  type={showRegisterPassword ? 'text' : 'password'}
+                  id="registerPassword"
+                  name="password"
+                  placeholder="Create a password"
+                  autoComplete="new-password"
+                  minLength={8}
+                  value={registerPassword}
+                  onChange={(e) => {
+                    setRegisterPassword(e.target.value);
+                    setRegisterMessage('');
+                  }}
+                  required
+                />
+
+                <button
+                  type="button"
+                  className="password-toggle"
+                  onClick={() => setShowRegisterPassword(!showRegisterPassword)}
+                  aria-label={showRegisterPassword ? 'Hide password' : 'Show password'}
+                >
+                  {showRegisterPassword ? 'Hide' : 'Show'}
+                </button>
+              </div>
+
+              {/* PASSWORD STRENGTH INDICATOR */}
+
+              {registerPassword.length > 0 && (
+                <div className="password-strength">
+
+                  <div className="strength-heading">
+                    <span>Password Strength</span>
+                    <strong className={`strength-${strengthLabel.toLowerCase()}`}>
+                      {strengthLabel}
+                    </strong>
+                  </div>
+
+                  <div className="strength-bars">
+                    {[1, 2, 3, 4, 5].map((bar) => (
+                      <div
+                        key={bar}
+                        className={
+                          bar <= strength
+                            ? `strength-bar strength-bar-${strengthLabel.toLowerCase()}`
+                            : 'strength-bar'
+                        }
+                      />
+                    ))}
+                  </div>
+
+                  <ul className="password-requirements">
+                    {passwordChecks.map((check) => (
+                      <li key={check.label} className={check.valid ? 'valid' : ''}>
+                        {check.valid ? '✓' : '○'} {check.label}
+                      </li>
+                    ))}
+                  </ul>
+
+                </div>
+              )}
             </div>
+
+            {/* CONFIRM PASSWORD */}
 
             <div className="form-group">
               <label htmlFor="confirmPassword">Confirm Password</label>
-              <input
-                type="password"
-                id="confirmPassword"
-                name="confirmPassword"
-                placeholder="Confirm your password"
-                autoComplete="new-password"
-                minLength={8}
-                required
-              />
+
+              <div className="password-wrapper">
+                <input
+                  type={showConfirmPassword ? 'text' : 'password'}
+                  id="confirmPassword"
+                  name="confirmPassword"
+                  placeholder="Confirm your password"
+                  autoComplete="new-password"
+                  minLength={8}
+                  required
+                />
+
+                <button
+                  type="button"
+                  className="password-toggle"
+                  onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                  aria-label={showConfirmPassword ? 'Hide password' : 'Show password'}
+                >
+                  {showConfirmPassword ? 'Hide' : 'Show'}
+                </button>
+              </div>
             </div>
 
             <button type="submit" className="auth-button">
@@ -161,16 +273,36 @@ export default function Login() {
               />
             </div>
 
+            {/* LOGIN PASSWORD */}
+
             <div className="form-group">
               <label htmlFor="loginPassword">Password</label>
-              <input
-                type="password"
-                id="loginPassword"
-                name="password"
-                placeholder="Enter your password"
-                autoComplete="current-password"
-                required
-              />
+
+              <div className="password-wrapper">
+                <input
+                  type={showLoginPassword ? 'text' : 'password'}
+                  id="loginPassword"
+                  name="password"
+                  placeholder="Enter your password"
+                  autoComplete="current-password"
+                  required
+                />
+
+                <button
+                  type="button"
+                  className="password-toggle"
+                  onClick={() => setShowLoginPassword(!showLoginPassword)}
+                  aria-label={showLoginPassword ? 'Hide password' : 'Show password'}
+                >
+                  {showLoginPassword ? 'Hide' : 'Show'}
+                </button>
+              </div>
+            </div>
+
+            <div className="forgot-password">
+              <a href="/forgot-password">
+                Forgot Password?
+              </a>
             </div>
 
             <button type="submit" className="auth-button">
