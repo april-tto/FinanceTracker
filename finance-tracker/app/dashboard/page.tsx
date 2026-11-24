@@ -1,7 +1,9 @@
 import React from 'react';
-import PlaidConnect from "../components/PlaidConnect";
+import Link from 'next/link';
+import PlaidConnect from '../components/PlaidConnect';
 
 export default function Dashboard() {
+  // ... rest of your code
   return (
     <div style={{ padding: '40px', fontFamily: 'sans-serif' }}>
       <h1 style={{ fontSize: '32px', fontWeight: 'bold', marginBottom: '20px' }}>
@@ -9,9 +11,9 @@ export default function Dashboard() {
       </h1>
       
       {/* Navigation Buttons */}
-      <div style={{ display: 'flex', gap: '15px', marginTop: '20px' }}>
+      <div style={{ display: 'flex', gap: '15px', marginTop: '20px', flexWrap: 'wrap' }}>
         
-        {/* This is the link to YOUR feature */}
+        {/* This is YOUR link */}
         <Link 
           href="/analyze-spending" 
           style={{ 
@@ -27,8 +29,13 @@ export default function Dashboard() {
         </Link>
         
       </div>
-    <div>
-      <PlaidConnect />
+
+      {/* This is THEIR component */}
+      {/* Note: If <PlaidConnect /> is not defined in this file, you might need to import it at the top! */}
+      <div style={{ marginTop: '30px' }}>
+        <PlaidConnect />
+      </div>
+
     </div>
   );
 }
