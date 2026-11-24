@@ -8,7 +8,9 @@ export async function POST(request: Request) {
 
   // the message we send to the AI
   const prompt =
-    "You are a financial advisor in a Finance Tracker app. Give short and simple advice. " +
+    "You are a financial advisor in a Finance Tracker app. Give short and simple advice (under 120 words). " +
+    "Write in plain text without markdown symbols like ** or #. " +
+    "If the question is not about money, politely say you can only help with finances. " +
     "These are the user's transactions: " + JSON.stringify(sampleTransactions) +
     " The user's question is: " + body.question;
 
@@ -22,11 +24,18 @@ export async function POST(request: Request) {
           "x-goog-api-key": "" + process.env.GEMINI_API_KEY, // our key from .env.local
         },
         body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }] }),
+        signal: AbortSignal.timeout(60000), // stop waiting after 60 seconds
       }
     );
 
     const data = await response.json();
     console.log("Gemini response:", JSON.stringify(data)); // shows what Gemini sent back (helps find errors)
+
+    // Gemini sent an error (for example "high demand") -> show it in the chat
+    if (data.error) {
+      return Response.json({ answer: "Sorry, the AI is busy right now. Please try again in a minute. (" + data.error.message + ")" });
+    }
+
     const answer = data.candidates[0].content.parts[0].text;
 
     return Response.json({ answer: answer });
