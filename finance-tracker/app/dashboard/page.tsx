@@ -1,5 +1,5 @@
 import React from 'react';
-import Link from 'next/link';
+import PlaidConnect from "../components/PlaidConnect";
 
 export default function Dashboard() {
   return (
@@ -27,6 +27,8 @@ export default function Dashboard() {
         </Link>
         
       </div>
+    <div>
+      <PlaidConnect />
     </div>
   );
 }
