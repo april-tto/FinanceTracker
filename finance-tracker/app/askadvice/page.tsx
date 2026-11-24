@@ -17,7 +17,8 @@ export default function AskAdvice() {
 
   // runs when the user clicks Send (or a question button)
   async function sendMessage(question: string) {
-    if (question === "") {
+    // don't send empty messages or a new question while waiting for an answer
+    if (question.trim() === "" || loading) {
       return;
     }
 
@@ -27,16 +28,22 @@ export default function AskAdvice() {
     setInput("");
     setLoading(true);
 
-    // send the question to our backend (app/api/chat/route.ts)
-    const response = await fetch("/api/chat", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ question: question }),
-    });
-    const data = await response.json();
+    try {
+      // send the question to our backend (app/api/chat/route.ts)
+      const response = await fetch("/api/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ question: question }),
+      });
+      const data = await response.json();
 
-    // show the bot's answer in the chat
-    setMessages([...newMessages, { sender: "bot", text: data.answer }]);
+      // show the bot's answer in the chat
+      setMessages([...newMessages, { sender: "bot", text: data.answer }]);
+    } catch (error) {
+      // if something goes wrong, show a message instead of staying on "Thinking..."
+      setMessages([...newMessages, { sender: "bot", text: "Something went wrong, please try again." }]);
+    }
+
     setLoading(false);
   }
 
@@ -63,16 +70,28 @@ export default function AskAdvice() {
         <button onClick={() => sendMessage("Make me a budget")}>Make me a budget</button>
       </div>
 
-      {/* input box and send button */}
-      <div className="chat-form">
+      {/* input box and send button (a form so pressing Enter also sends) */}
+      <form
+        className="chat-form"
+        onSubmit={(e) => {
+          e.preventDefault(); // stop the page from reloading
+          sendMessage(input);
+        }}
+      >
         <input
           type="text"
           placeholder="Type your question..."
           value={input}
           onChange={(e) => setInput(e.target.value)}
         />
-        <button onClick={() => sendMessage(input)}>Send</button>
-      </div>
+        <button type="submit" disabled={loading}>Send</button>
+        <button
+          type="button"
+          onClick={() => setMessages([{ sender: "bot", text: "Hi! I'm your AI finance assistant. Ask me anything about your money." }])}
+        >
+          Clear chat
+        </button>
+      </form>
     </div>
   );
 }
