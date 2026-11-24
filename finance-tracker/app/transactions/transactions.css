@@ -1,0 +1,295 @@
+.tx-page {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 30px 5% 50px;
+    box-sizing: border-box;
+    color: #151515;
+}
+
+.tx-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 25px;
+}
+
+.tx-header h1 {
+    margin: 0 0 6px;
+    font-size: 32px;
+}
+
+.tx-header p {
+    margin: 0;
+    color: #252525;
+}
+
+.tx-header-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.tx-btn {
+    padding: 11px 18px;
+    border: none;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.tx-btn-green {
+    background-color: #171717;
+    color: #ffffff;
+}
+
+.tx-btn-green:hover {
+    background-color: #333333;
+}
+
+.tx-btn-light {
+    background-color: #f5f5f2;
+    color: #222222;
+}
+
+.tx-btn-light:hover {
+    background-color: #e5eddb;
+}
+
+
+.tx-summary {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.tx-card {
+    background-color: #f5f5f2;
+    border-radius: 12px;
+    padding: 18px 22px;
+}
+
+.tx-card span {
+    display: block;
+    font-size: 14px;
+    color: #555555;
+    margin-bottom: 6px;
+}
+
+.tx-card strong {
+    font-size: 26px;
+}
+
+.tx-card-dark {
+    background-color: #171717;
+    color: #ffffff;
+}
+
+.tx-card-dark span {
+    color: #cccccc;
+}
+
+.tx-income {
+    color: #3f6b1f;
+}
+
+.tx-expense {
+    color: #b3261e;
+}
+
+
+.tx-form-box {
+    background-color: #f5f5f2;
+    border-radius: 12px;
+    padding: 22px;
+    margin-bottom: 15px;
+    border: 2px solid transparent;
+}
+
+.tx-editing {
+    border-color: #171717;
+}
+
+.tx-form-box h2 {
+    margin: 0 0 15px;
+    font-size: 20px;
+}
+
+.tx-form {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+    gap: 12px;
+    align-items: end;
+}
+
+.tx-form label {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+.tx-form input,
+.tx-form select,
+.tx-filters input,
+.tx-filters select {
+    padding: 10px;
+    border: 1px solid #cccccc;
+    border-radius: 6px;
+    font-size: 14px;
+    background-color: #ffffff;
+    box-sizing: border-box;
+    width: 100%;
+    outline: none;
+}
+
+.tx-form input:focus,
+.tx-form select:focus,
+.tx-filters input:focus,
+.tx-filters select:focus {
+    border: 2px solid #8da564;
+}
+
+.tx-form-buttons {
+    grid-column: 1 / -1;
+    display: flex;
+    gap: 10px;
+}
+
+.tx-error {
+    margin: 12px 0 0;
+    padding: 10px;
+    background-color: #fbe3e1;
+    color: #8c1d18;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+.tx-message {
+    padding: 10px 14px;
+    margin: 0 0 15px;
+    background-color: #e5eddb;
+    color: #263522;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+
+.tx-filters {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+
+.tx-table-box {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 10px 20px 15px;
+    overflow-x: auto;
+}
+
+.tx-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 15px;
+}
+
+.tx-table th {
+    text-align: left;
+    font-size: 13px;
+    color: #555555;
+    padding: 12px 8px;
+    border-bottom: 2px solid #e5e7eb;
+}
+
+.tx-table td {
+    padding: 12px 8px;
+    border-bottom: 1px solid #eeeeee;
+}
+
+.tx-table td:first-child {
+    white-space: nowrap;
+}
+
+.tx-table td.tx-income,
+.tx-table td.tx-expense {
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.tx-row-editing {
+    background-color: #e5eddb;
+}
+
+.tx-right {
+    text-align: right !important;
+}
+
+.tx-tag {
+    background-color: #e5eddb;
+    color: #263522;
+    padding: 3px 9px;
+    border-radius: 999px;
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+.tx-actions {
+    white-space: nowrap;
+}
+
+.tx-actions button {
+    margin-left: 6px;
+    padding: 6px 11px;
+    border: 1px solid #cccccc;
+    border-radius: 6px;
+    background-color: #ffffff;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.tx-actions button:hover {
+    background-color: #f5f5f2;
+}
+
+.tx-actions .tx-delete {
+    color: #b3261e;
+    border-color: #e8b4b0;
+}
+
+.tx-empty {
+    text-align: center;
+    color: #555555;
+    padding: 30px 0;
+}
+
+.tx-count {
+    margin: 12px 0 0;
+    font-size: 13px;
+    color: #555555;
+}
+
+
+@media (max-width: 768px) {
+    .tx-summary {
+        grid-template-columns: 1fr;
+    }
+
+    .tx-form {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .tx-form label:first-child {
+        grid-column: 1 / -1;
+    }
+
+    .tx-filters {
+        grid-template-columns: 1fr;
+    }
+}
