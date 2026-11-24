@@ -13,6 +13,9 @@ const Navbar = () => {
                     <Link href="/dashboard">Dashboard</Link>
                 </li>
                 <li>
+                    <Link href="/transactions">Transactions</Link>
+                </li>
+                <li>
                     <Link href="/analyzespending">Analyze Spendings</Link>
                 </li>
                 <li>
